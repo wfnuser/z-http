@@ -16,6 +16,7 @@ type Path = V.Bytes
 data HTTPVersion = HTTP1_1
   deriving (Generic)
   deriving (T.Print)
+  deriving (Show)
 
 versionToBytes :: HTTPVersion -> V.Bytes
 versionToBytes = \case

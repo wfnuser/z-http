@@ -25,6 +25,7 @@ library
                     Z.Data.HTTP.Client.Dns
                     Z.Data.HTTP.Client.Types
                     Z.Data.HTTP.Client.Builder
+                    Z.Data.HTTP.Client.Response
                     MainT
 
   -- Modules included in this library but not exported.
