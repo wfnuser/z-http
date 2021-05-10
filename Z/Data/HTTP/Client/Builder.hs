@@ -22,6 +22,9 @@ data Request = Request
 emptyRequest :: Request
 emptyRequest = Request V.empty V.empty HTTP1_1 V.empty
 
+buildRequest :: State Request a -> Request
+buildRequest s = execState s emptyRequest
+
 setHeader :: (HeaderKey, HeaderValue) -> State Request ()
 setHeader (k, v) = do
   q <- get

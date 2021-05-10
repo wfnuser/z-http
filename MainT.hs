@@ -14,14 +14,14 @@ import Z.IO.Resource
 
 main :: IO ()
 main = do
-  addr <- resolveDNS ("www.bing.com", 80)
+  addr <- resolveDNS ("www.baidu.com", 80)
   withResource (initTCPClient defaultTCPClientConfig {tcpRemoteAddr = addrAddress addr}) $ \tcp -> do
     (i, o) <- newBufferedIO tcp
     let req = do
           setMethod "GET"
           setPath "/"
-          setHost ("www.bing.com", 80)
-    let reqB = requestToBytes (execState req emptyRequest)
+          setHost ("www.baidu.com", 80)
+    let reqB = requestToBytes $ buildRequest req
     print . T.validate $ reqB
     writeBuffer' o $ reqB
     -- writeBuffer' o "GET http://www.bing.com HTTP/1.1\r\nHost: www.bing.com\r\n\r\n"
