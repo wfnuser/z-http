@@ -5,7 +5,6 @@ import           Data.IORef
 import qualified Data.CaseInsensitive   as CI
 import qualified Z.Data.Builder         as B
 import qualified Z.Data.Parser          as P
-import qualified Z.Data.Parser          as P
 import qualified Z.Data.Text            as T
 import qualified Z.Data.Vector          as V
 import qualified Z.Data.Vector.Base     as V
