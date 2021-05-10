@@ -26,7 +26,7 @@ type Headers = (V.Vector (HeaderKey, HeaderValue))
 headersToBytes :: Headers -> V.Bytes
 headersToBytes headers = case V.unpack headers of
   [] -> ""
-  (hk, hv) : hs -> mconcat [hk, SPACE, hv, SPACE, CRLF] <> headersToBytes (V.pack hs)
+  (hk, hv) : hs -> mconcat [hk, ":", SPACE, hv, CRLF] <> headersToBytes (V.pack hs)
 
 type HeaderKey = V.Bytes
 

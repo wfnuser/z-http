@@ -37,8 +37,13 @@ setHost (hostName, portNumber) = do
   q <- get
   put q {requestHeaders = V.snoc (requestHeaders q) ("Host", toBytes hostName)}
 
+setPath :: Path -> State Request ()
+setPath p = do
+  q <- get
+  put q {requestPath = p}
+
 requestToBytes :: Request -> V.Bytes
-requestToBytes req = mconcat [method, SPACE, path, SPACE, version, CRLF, headers]
+requestToBytes req = mconcat [method, SPACE, path, SPACE, version, CRLF, headers, CRLF]
   where
     method :: V.Bytes = requestMethod req
     path :: V.Bytes = requestPath req
