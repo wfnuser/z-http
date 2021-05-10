@@ -29,7 +29,7 @@ main = do
     print . T.validate $ buf
     let res = P.parse responseParser buf
     case res of
-      (_, Right res) -> mapM_ (print . T.validate . snd) (V.unpack (responseHeaders res))
+      (_, Right res) -> mapM_ (print . T.validate . snd) $ V.unpack $ responseHeaders res
 
 test :: IO ()
 test = print $ requestToBytes req
