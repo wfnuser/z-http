@@ -3,7 +3,7 @@ module MainT where
 import Control.Monad.State
 import Z.Data.HTTP.Client
 import Z.Data.HTTP.Client.Common
-import Z.Data.HTTP.Client.Dns
+import Z.Data.HTTP.Client.DNS
 import Z.Data.HTTP.Client.Request
 import Z.Data.HTTP.Client.Response
 import qualified Z.Data.Parser as P

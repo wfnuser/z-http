@@ -22,7 +22,7 @@ extra-source-files: CHANGELOG.md
 library
   exposed-modules:  Z.Data.HTTP.Request
                     Z.HTTP.Server
-                    Z.Data.HTTP.Client.Dns
+                    Z.Data.HTTP.Client.DNS
                     Z.Data.HTTP.Client.Common
                     Z.Data.HTTP.Client.Request
                     Z.Data.HTTP.Client.Response

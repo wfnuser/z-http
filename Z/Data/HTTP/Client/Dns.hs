@@ -1,4 +1,4 @@
-module Z.Data.HTTP.Client.Dns where
+module Z.Data.HTTP.Client.DNS where
 
 import qualified Z.Data.Builder as B
 import Z.Data.CBytes

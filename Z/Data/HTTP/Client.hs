@@ -1,6 +1,6 @@
 module Z.Data.HTTP.Client where
 
-import Z.Data.HTTP.Client.Dns
+import Z.Data.HTTP.Client.DNS
 import Z.Data.HTTP.Client.Request
 import Z.Data.HTTP.Client.Response
 import qualified Z.Data.Parser as P
