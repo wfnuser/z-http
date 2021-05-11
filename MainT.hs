@@ -15,7 +15,8 @@ import Z.IO.Resource
 
 main :: IO ()
 main = do
-  res <- sendRequest $ buildRequest req
+  let reqB = buildRequest req
+  res <- sendRequest reqB
   mapM_ (print . T.validate . snd) $ V.unpack $ responseHeaders res
   where
     req = do

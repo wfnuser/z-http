@@ -48,6 +48,7 @@ setHost :: Host -> State Request ()
 setHost (hostName, portNumber) = do
   q <- get
   put q {requestHeaders = V.snoc (requestHeaders q) ("Host", toBytes hostName)}
+  put q {requestHost = toBytes hostName}
 
 setPath :: Path -> State Request ()
 setPath p = do

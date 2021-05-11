@@ -1,5 +1,6 @@
 module Z.Data.HTTP.Client where
 
+import Z.Data.CBytes
 import Z.Data.HTTP.Client.DNS
 import Z.Data.HTTP.Client.Request
 import Z.Data.HTTP.Client.Response
@@ -10,7 +11,7 @@ import Z.IO.Network
 
 sendRequest :: Request -> IO Response
 sendRequest req = do
-  addr <- resolveDNS ("www.baidu.com", 80)
+  addr <- resolveDNS (fromBytes $ requestHost req, 80)
   withResource (initTCPClient defaultTCPClientConfig {tcpRemoteAddr = addrAddress addr}) $ \tcp -> do
     (i, o) <- newBufferedIO tcp
     let reqB = requestToBytes req
