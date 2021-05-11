@@ -1,6 +1,6 @@
 {-# LANGUAGE LambdaCase #-}
 
-module Z.Data.HTTP.Client.Types where
+module Z.Data.HTTP.Client.Common where
 
 import GHC.Generics
 import qualified Z.Data.Text as T

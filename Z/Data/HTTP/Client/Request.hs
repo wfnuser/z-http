@@ -1,26 +1,35 @@
-module Z.Data.HTTP.Client.Builder where
+module Z.Data.HTTP.Client.Request where
 
 import Control.Monad.State
 import GHC.Generics
 import qualified Z.Data.ASCII as C
 import qualified Z.Data.Builder as B
 import Z.Data.CBytes
-import Z.Data.HTTP.Client.Types
+import Z.Data.HTTP.Client.Common
 import qualified Z.Data.Parser as P
 import qualified Z.Data.Text as T
 import qualified Z.Data.Vector as V
+import Z.IO.Network
 
 data Request = Request
   { requestMethod :: !Method,
     requestPath :: !Path,
     requestVersion :: !HTTPVersion,
-    requestHeaders :: Headers
+    requestHeaders :: Headers,
+    requestHost :: V.Bytes
   }
   deriving (Generic)
   deriving (T.Print)
 
+-- parse http host header to Z.Data.HTTP.Client.Common.Host
+-- TODO: port should be optional;
+requestHostParser :: P.Parser Host
+requestHostParser = do
+  hostname <- P.takeWhile (/= C.COLON)
+  return (fromBytes hostname, PortNumber 80)
+
 emptyRequest :: Request
-emptyRequest = Request V.empty V.empty HTTP1_1 V.empty
+emptyRequest = Request V.empty V.empty HTTP1_1 V.empty V.empty
 
 buildRequest :: State Request a -> Request
 buildRequest s = execState s emptyRequest

@@ -23,8 +23,8 @@ library
   exposed-modules:  Z.Data.HTTP.Request
                     Z.HTTP.Server
                     Z.Data.HTTP.Client.Dns
-                    Z.Data.HTTP.Client.Types
-                    Z.Data.HTTP.Client.Builder
+                    Z.Data.HTTP.Client.Common
+                    Z.Data.HTTP.Client.Request
                     Z.Data.HTTP.Client.Response
                     MainT
 

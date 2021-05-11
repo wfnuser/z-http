@@ -2,7 +2,7 @@ module Z.Data.HTTP.Client.Response where
 
 import Data.Word
 import qualified Z.Data.ASCII as C
-import Z.Data.HTTP.Client.Types
+import Z.Data.HTTP.Client.Common
 import qualified Z.Data.Parser as P
 import qualified Z.Data.Text as T
 import qualified Z.Data.Vector as V
